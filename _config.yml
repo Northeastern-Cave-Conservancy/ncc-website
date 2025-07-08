@@ -2,7 +2,7 @@
 site: necaveconservancy
 title: necaveconservancy.org
 lang: en-US
-timezone:  NorthAmerica/NewYork 
+timezone:  America/New_York
 
 # Organization settings
 organization:
