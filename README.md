@@ -2,7 +2,7 @@
 The Northeastern Cave Conservancy's WordPress site, minus the WordPress.
 
 ## Deployment
-This repository targets github pages. Committs to `main` will be trigger a workflow to build the site and deploy it to github pages.
+This repository targets github pages. Commits to `main` will be trigger a workflow to build the site and deploy it to github pages.
 
 ## Local Debugging
 Before committing or merging a PR to `main`, please test your changes locally. In the repository root, run `make` to build `_site`, or `make serve` to build and start jekyll's debugging webserver.
