@@ -4,7 +4,7 @@ layout: preserve
 permalink: /preserves/jack-packers/
 manager: "Kevin Dumont"
 email: "jack_packers@necaveconservancy.org"
-managementPlanPath: null
+managementPlanPath: "/preserves/jack-packers/management_plan.pdf"
 mapPath: "/preserves/jack-packers/map.pdf"
 party:
   minimum: 3
