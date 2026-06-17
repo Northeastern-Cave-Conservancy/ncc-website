@@ -17,50 +17,59 @@
 <hr class=" hr_color" style="margin: 0 auto 20px;">
 
 <ul>
-    {% if preserve.party %}
-    <li>
-    {% if preserve.party.minimum %}
-      Minimum group size is {{ preserve.party.minimum }}
-    {% endif %}
-    {% if preserve.party.maximum %}
-     ; maximum group size is {{ preserve.party.maximum }}
-    {% endif %}
-    .</li>
-    {% endif %}
-
-    {% for req in preserve.shortRequirements %}
-    <li>
-        {{ req | markdownify | remove: '<p>' | remove: '</p>' }}
-    </li>
-    {% endfor %}
-
-    {% if preserve.vertical_gear_required %}
-    <li>
-        {{ site.data.common_preserve_requirements.vertical.short_requirement }}
-    </li>
-    {% endif %}
-
-    {% if preserve.special_use_groups_recommended %}
-    <li>
-        <a href="/cave-permit-special-use" >Special Use groups</a> require a permit
-    </li>
-    {% else %}
-    <li>
-        Not recommended for <a href="/cave-permit-special-use" >Special Use groups</a>
-    </li>
-    {% endif %}
-
     {% if preserve.permit_required %}
     <li>
-        All others must <a href="mailto:{{ preserve.email }}">contact Preserve Manager</a> for permit
+        Visitors must <a href="mailto:{{ preserve.email }}">contact the Preserve Manager</a> for a permit
     </li>
     {% else %}
     <li>
-        For others no permit is required
+        No permit is required for regular users
     </li>
     {% endif %}
+</ul>
 
+{% for cave_key in preserve.caves %}
+    {% assign cave = site.caves | where: "key", cave_key | first %}
+    {% if cave %}
+    <strong>{{ cave.title }}</strong>
+    <ul>
+        {% if cave.party %}
+        <li>
+        {% if cave.party.minimum %}
+          Minimum group size is {{ cave.party.minimum }}
+        {% endif %}
+        {% if cave.party.maximum %}
+         ; maximum group size is {{ cave.party.maximum }}
+        {% endif %}
+        .</li>
+        {% endif %}
 
+        {% for req in cave.shortRequirements %}
+        <li>
+            {{ req | markdownify | remove: '<p>' | remove: '</p>' }}
+        </li>
+        {% endfor %}
+
+        {% if cave.vertical_gear_required %}
+        <li>
+            {{ site.data.common_preserve_requirements.vertical.short_requirement }}
+        </li>
+        {% endif %}
+
+        {% if cave.special_use_groups_recommended %}
+        <li>
+            <a href="/cave-permit-special-use" >Special Use groups</a> require a permit
+        </li>
+        {% else %}
+        <li>
+            Not recommended for <a href="/cave-permit-special-use" >Special Use groups</a>
+        </li>
+        {% endif %}
+    </ul>
+    {% endif %}
+{% endfor %}
+
+<ul>
     <li>
         <a href="mailto:{{ preserve.email }}">Contact Preserve Manager</a>
     </li>

@@ -62,29 +62,47 @@
                     {% for paragraph in site.data.common_preserve_requirements.paragraphs %}
                       {{ paragraph[1] | markdownify }}
                     {% endfor %}
-                    <ul>
-                      {% if page.party %}
-                        <li>
-                        {% if page.party.minimum %}
-                          Minimum group size is {{ page.party.minimum }}
-                      {% endif %}
-                        {% if page.party.maximum %}
-                          ; maximum group size is {{ page.party.maximum }}
-                      {% endif %}
 
-                        .</li>
-                      {% endif %}
-                      {% for req in page.longRequirements %}
-                        <li>{{ req | markdownify | remove: '<p>' | remove: '</p>' }}</li>
-                      {% endfor %}
-                      {% if page.vertical_gear_required %}
-                        <li>{{ site.data.common_preserve_requirements.vertical.long_requirement }}</li>
-                      {% endif %}
+                    <h4>General Requirements</h4>
+                    <ul>
                       {% for req in site.data.common_preserve_requirements.long_requirements %}
                         <li>{{ req[1] | markdownify | remove: '<p>' | remove: '</p>' }}</li>
                       {% endfor %}
-
                     </ul>
+
+                    {% comment %}
+                    Cave-specific requirements. Each cave on the preserve is
+                    rendered in its own labeled section.
+                    {% endcomment %}
+                    {% for cave_key in page.caves %}
+                      {% assign cave = site.caves | where: "key", cave_key | first %}
+                      {% if cave %}
+                        <h4>{{ cave.title }}</h4>
+                        <ul>
+                          {% if cave.party %}
+                            <li>
+                              {% if cave.party.minimum %}Minimum group size is {{ cave.party.minimum }}{% endif %}
+                              {% if cave.party.maximum %}; maximum group size is {{ cave.party.maximum }}{% endif %}
+                              .</li>
+                          {% endif %}
+                          {% for req in cave.longRequirements %}
+                            <li>{{ req | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+                          {% endfor %}
+                          {% if cave.vertical_gear_required %}
+                            <li>{{ site.data.common_preserve_requirements.vertical.long_requirement }}</li>
+                          {% endif %}
+                        </ul>
+                        {% if cave.winterClosure %}
+                          {% if cave.winterClosureText %}
+                            <p><em>{{ cave.winterClosureText | markdownify | remove: '<p>' | remove: '</p>' }}</em></p>
+                          {% else %}
+                            <p><em>{{ cave.title }} is closed October 1st through April 30th to protect hibernating bats. Contact the managers (below) for additional information.</em></p>
+                          {% endif %}
+                        {% endif %}
+                      {% else %}
+                        <!-- WARNING: no cave found for key '{{ cave_key }}' -->
+                      {% endif %}
+                    {% endfor %}
                   </div>
                 </div>
               </div>
@@ -172,13 +190,6 @@
                     {% endif %}
                 <div class="column mcb-column one column_column column-margin-10px">
                   <div class="column_attr clearfix">
-                    {% if page.winterClosure %}
-                        {% if page.winterClosureText%}
-                            <h4>{{ page.winterClosureText | markdownify }}</h4>
-                        {% else %}
-                            <h4>All caves on the preserve are closed October 1st through April 30th to protect hibernating bats. Contact the managers (below) for additional information.</h4>
-                        {% endif %}
-                    {% endif %}
                     <hr class="no_line" style="margin: 0 auto 10px;">
                     <p class="big">If you have questions about this preserve, please contact the preserve managers at <a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
                   </div>

@@ -7,11 +7,11 @@ email: sellecks@necaveconservancy.org
 images:
 managementPlanPath: "/preserves/sellecks/management_plan.pdf"
 mapPath: "/preserves/sellecks/map.pdf"
-party:
-  minimum: 3
-  maximum: null
-shortRequirements:
-  - "Park in NCC parking area"
+caves:
+  - sellecks
+  - levys
+  - cave_575
+  - natural_bridge
 topParagraphs:
   - "Sellecks Karst Preserve is located off of Kniskern Road in the town of Carlisle in Schoharie County, New York. The preserve was purchased by the NCC in 2002 and contains about 15 acres of land and four known caves."
   - "The largest of the caves is Sellecks Cave with approximately 1000 feet of passage. The entrance to the cave is in an impressive sinkhole and opens into a large room at the base of a twenty foot entrance drop. The drop is not climbable and requires vertical gear to enter and exit the cave. At the center of the room a stream cuts through the cave which has been dye traced to the Northwest Passage in nearby McFails Cave. This stream quickly sumps upstream but has been dove approximately 700 feet. Heading downstream the stream disappears through inaccessible cracks."
@@ -26,9 +26,6 @@ imagePaths:
   - "/preserves/sellecks/images/03.jpg"
   - "/preserves/sellecks/images/04.jpg"
   - "/preserves/sellecks/images/05.jpg"
-winterClosure: false
-special_use_groups_recommended: false
-vertical_gear_required: true
 permit_required: false
 redirect_from:
   - /sellecks-preserve
