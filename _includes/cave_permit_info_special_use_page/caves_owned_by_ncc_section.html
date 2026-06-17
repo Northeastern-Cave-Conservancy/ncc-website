@@ -25,89 +25,41 @@ to be displayed in the car window while parked at the cave.</li>
 supports the principles of Leave No Trace.</li>
 </ul>
 </div></div></div></div>
-<div class="wrap mcb-wrap one  column-margin-10px valign-middle clearfix" style="padding:0 3% 0 0"><div class="mcb-wrap-inner">
+{% comment %}
+Cave-specific special use information, rendered from the _caves collection.
+A cave appears here only if it has explicit special use data (a `specialUse`
+block for recommended caves, or a `specialUseNote` for caves that are not
+recommended). Cards are laid out in rows of three.
+{% endcomment %}
+{% assign su_col = 0 %}
+{% for preserve in site.preserves %}
+  {% for cave_key in preserve.caves %}
+    {% assign cave = site.caves | where: "key", cave_key | first %}
+    {% assign show_cave = false %}
+    {% if cave.specialUse %}{% assign show_cave = true %}{% endif %}
+    {% if cave.specialUseNote %}{% assign show_cave = true %}{% endif %}
+    {% if show_cave %}
+      {% assign su_rem = su_col | modulo: 3 %}
+      {% if su_rem == 0 %}<div class="wrap mcb-wrap one  column-margin-20px valign-top clearfix" style="padding:0 3% 0 0"><div class="mcb-wrap-inner">{% endif %}
 <div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Knox Cave</h5>
+<h5>{{ cave.title }}</h5>
 <hr class=" hr_color" style="margin: 0 auto 20px;">
 
 <ul>
-<li>Minimum of 4 in party.</li>
-<li>Read Information Sheet</li>
+{% if cave.special_use_groups_recommended %}
+  {% if cave.specialUse.party.minimum %}<li>Minimum of {{ cave.specialUse.party.minimum }} in party.</li>{% endif %}
+  {% for req in cave.specialUse.requirements %}<li>{{ req }}</li>{% endfor %}
+{% else %}
+  <li>{{ cave.specialUseNote | default: "Not recommended for special use groups." }}</li>
+{% endif %}
 </ul>
 </div></div>
-<div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Clarksville Cave</h5>
-<hr class=" hr_color" style="margin: 0 auto 20px;">
-
-<ul>
-<li>Minimum of 4 in party.</li>
-<li>No fires please.</li>
-</ul>
-</div></div>
-<div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Bentleys Cave</h5>
-<hr class=" hr_color" style="margin: 0 auto 20px;">
-
-<ul>
-<li>Minimum of 4 in party.</li>
-<li>Read Information Sheet.</li>
-</ul>
-</div></div>
-</div></div>
-<div class="wrap mcb-wrap one  column-margin-20px valign-top clearfix" style="padding:0 3% 0 0"><div class="mcb-wrap-inner">
-<div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Onesquethaw Cave</h5>
-<hr class=" hr_color" style="margin: 0 auto 20px;">
-
-<ul>
-<li>Minimum of 4 in party.</li>
-<li>Read Information Sheet.</li>
-</ul>
-</div></div>
-<div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Bensons Cave</h5>
-<hr class=" hr_color" style="margin: 0 auto 20px;">
-
-<ul>
-<li>Minimum of 4 in party.</li>
-<li>Read Information Sheet.</li>
-<li>Each party member must be proficient in vertical caving techniques and have their own set of gear.</li>
-</ul>
-</div></div>
-<div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Ella Armstrong</h5>
-<hr class=" hr_color" style="margin: 0 auto 20px;">
-
-<ul>
-<li>Ella Armstrong is a vertical cave and thus not recommended for most special use groups. Groups that are vertically competant may enter the cave.</li>
-</ul>
-</div></div>
-</div></div>
-<div class="wrap mcb-wrap one  column-margin-20px valign-top clearfix" style="padding:0 3% 0 0"><div class="mcb-wrap-inner">
-<div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Sellecks, Levys, Cave 575</h5>
-<hr class=" hr_color" style="margin: 0 auto 20px;">
-
-<ul>
-<li>Not recommended for special use groups.</li>
-</ul>
-</div></div>
-<div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Merlins Cave</h5>
-<hr class=" hr_color" style="margin: 0 auto 20px;">
-
-<ul>
-<li>Not recommended for special use groups.</li>
-</ul>
-</div></div>
-<div class="column mcb-column one-third column_column  column-margin-10px"><div class="column_attr clearfix" style="background-color:/#F0F0F0; padding:20px;">
-<h5>Crossbones Cave
-</h5>
-<hr class=" hr_color" style="margin: 0 auto 20px;">
-
-<ul>
-<li>Not recommended for special use groups.</li>
-</ul>
-</div></div>
-</div></div>
+      {% assign su_col = su_col | plus: 1 %}
+      {% assign su_rem = su_col | modulo: 3 %}
+      {% if su_rem == 0 %}</div></div>{% endif %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% assign su_rem = su_col | modulo: 3 %}
+{% if su_rem != 0 %}</div></div>{% endif %}
 </div></div>

@@ -6,8 +6,9 @@ manager: "Devon Hedges"
 email: "traino_preserve@necaveconservancy.org"
 managementPlanPath: "/preserves/alan-traino/management_plan.pdf"
 mapPath: "/preserves/alan-traino/map.pdf"
-party:
-  minimum: 3
+caves:
+  - slingerlands_hellhole
+  - georges_surprise
 topParagraphs:
   - "The Alan Traino Preserve is a karst preserve in Albany County, NY. There are two known caves on the preserve: Slingerlands Hellhole and George's Surprise. These two insurgence caves contain an estimated 2,100 feet of passages and have a voice connection between them. The caves are part of the insurgence complex for the Chatter-Stone-Hole System."
   - "Slingerland's Hellhole is the longer of the two caves with about 1450 feet of passage. The entrance to the cave is in a slot in a sinkhole with a small stream. After a 15 ft climbdown into the entrance, there is a wet section with a low ceiling. After 50 feet there will start to be more headroom, with low standing passage, stoopwalks, crawls, and a decorated flowstone hall ahead. There are several sections with delicate rimstone and speleothems - cave softly to avoid damaging these delicate formations."
@@ -19,8 +20,6 @@ imagePaths:
   - "/preserves/alan-traino/images/Slinglerands-Entrance.jpg"
   - "/preserves/alan-traino/images/Slingerlands-Sinkhole.jpg"
   - "/preserves/alan-traino/images/Georges-Surprise.jpg"
-winterClosure: false
-special_use_groups_recommended: true
 redirect_from:
   - /alan-traino-preserve
 ---

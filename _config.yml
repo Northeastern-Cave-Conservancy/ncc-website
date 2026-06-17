@@ -42,6 +42,8 @@ collections:
   preserves:
     output: true
     permalink: /:slug
+  caves:
+    output: false
   guestbook_landing_pages:
     output: true
     permalink: /:slug
