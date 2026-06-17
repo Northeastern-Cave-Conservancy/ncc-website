@@ -23,16 +23,19 @@
   style="padding:0 3% 0 0">
     <div class="mcb-wrap-inner">
       {% for preserve in site.preserves %}
+        {% for cave_key in preserve.caves %}
+          {% assign cave = site.caves | where: "key", cave_key | first %}
+          {% if cave %}
       <div class=
       "column mcb-column one-third column_column column-margin-10px"
       style="height: 325px;">
         <div class="column_attr clearfix" style=
         "background-color:/#F0F0F0; padding:20px;">
-            <h5>{{ preserve.title }}</h5>
+            <h5>{{ cave.title }}</h5>
           <hr class="hr_color" style="margin: 0 auto 20px;">
-          {% if preserve.shortRequirements %}
+          {% if cave.shortRequirements %}
           <ul>
-            {% for req in preserve.shortRequirements %}
+            {% for req in cave.shortRequirements %}
             <li>
                 {{ req | markdownify | remove: '<p>' | remove: '</p>' }}
             </li>
@@ -41,10 +44,12 @@
           {% endif %}
           <p>Contact Preserve Manager:<br>
           <a href=
-          "mailto:{{ preservce.email }}">{{ preserve.email }}</a></p>
+          "mailto:{{ preserve.email }}">{{ preserve.email }}</a></p>
         </div>
     </div>
   </div>
-    {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
 </div>
 </div>
