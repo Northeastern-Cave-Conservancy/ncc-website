@@ -14,7 +14,7 @@ shortRequirements:
   - "Trips must be led by a Merlins cave steward."
   - "Park in the Merlins parking area, do not block gate."
 topParagraphs:
-  - <h3>We are currently raising funds for a 35 acre expansion of the Merlins Preserve, which includes two known caves! <a href="/preserves/merlins/extension" style="color:#1e90ff">Click here to learn more.</a></h3>
+  - <h3>We have recently closed on a 35 acre expansion of the Merlins Preserve. Thank you for your donations! <a href="/preserves/merlins/extension" style="color:#1e90ff">Click here to learn more.</a></h3>
   - "Merlins Cave Preserve consists of 35 acres and is located in the town of Canaan in Columbia County, New York."  
   - "Merlins Cave currently exists in nearly pristine condition. Therefore, all trips require a trained Cave Steward who is thoroughly familiar with the cave and as participated in Steward-training exercises. In addition all trips are at the discretion of the Preserve Managers. Steward trainings are held periodically and will be announced via the NRO/NSS and Northeastern Cave Conservancy list-serves."
   - "Cavers visiting Merlins cave should be aware of areas marked by caution tape, as these areas are either particularly fragile or unstable. A trail is marked from the parking area past the Dragon Bones Cave entrance to the Merlins Cave entrance. Established trails should be used to access the caves."
