@@ -1,7 +1,7 @@
 ---
 title: "Ella Armstrong Cave"
 key: ella_armstrong
-preserve: ella_armstrong
+preserve: ella-armstrong
 party:
   minimum: 3
   maximum: null

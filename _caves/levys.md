@@ -1,7 +1,7 @@
 ---
 title: "Levys Cave"
 key: levys
-preserve: sellecks_karst_preserve
+preserve: sellecks
 party:
   minimum: 3
   maximum: null

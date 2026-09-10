@@ -1,7 +1,7 @@
 ---
 title: "Natural Bridge Cave"
 key: natural_bridge
-preserve: sellecks_karst_preserve
+preserve: sellecks
 party:
   minimum: 3
   maximum: null
