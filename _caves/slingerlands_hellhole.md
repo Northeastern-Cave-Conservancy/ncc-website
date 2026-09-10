@@ -1,7 +1,7 @@
 ---
 title: "Slingerland's Hellhole"
 key: slingerlands_hellhole
-preserve: alan_traino
+preserve: alan-traino
 party:
   minimum: 3
 winterClosure: false

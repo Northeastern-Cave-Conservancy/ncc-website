@@ -1,7 +1,7 @@
 ---
 title: "Clarksville Cave"
 key: clarksville
-preserve: clarksville_cave
+preserve: clarksville
 party:
   minimum: 3
   maximum: 15

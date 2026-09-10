@@ -1,7 +1,7 @@
 ---
 title: "George's Surprise"
 key: georges_surprise
-preserve: alan_traino
+preserve: alan-traino
 party:
   minimum: 3
 winterClosure: false

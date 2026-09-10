@@ -1,7 +1,7 @@
 ---
 title: "Sellecks Cave"
 key: sellecks
-preserve: sellecks_karst_preserve
+preserve: sellecks
 party:
   minimum: 3
   maximum: null
