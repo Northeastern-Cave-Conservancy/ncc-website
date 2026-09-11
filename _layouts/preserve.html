@@ -65,6 +65,14 @@
 
                     <h4>General Requirements</h4>
                     <ul>
+                      {% comment %}
+                      Preserve-wide requirements (parking, stewardship, ...)
+                      come first, then the requirements shared by every NCC
+                      preserve.
+                      {% endcomment %}
+                      {% for req in page.shortRequirements %}
+                        <li>{{ req | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+                      {% endfor %}
                       {% for req in site.data.common_preserve_requirements.long_requirements %}
                         <li>{{ req[1] | markdownify | remove: '<p>' | remove: '</p>' }}</li>
                       {% endfor %}

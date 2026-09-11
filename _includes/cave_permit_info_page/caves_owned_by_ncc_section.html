@@ -33,8 +33,13 @@
         "background-color:/#F0F0F0; padding:20px;">
             <h5>{{ cave.title }}</h5>
           <hr class="hr_color" style="margin: 0 auto 20px;">
-          {% if cave.shortRequirements %}
+          {% if cave.shortRequirements or preserve.shortRequirements %}
           <ul>
+            {% for req in preserve.shortRequirements %}
+            <li>
+                {{ req | markdownify | remove: '<p>' | remove: '</p>' }}
+            </li>
+            {% endfor %}
             {% for req in cave.shortRequirements %}
             <li>
                 {{ req | markdownify | remove: '<p>' | remove: '</p>' }}
