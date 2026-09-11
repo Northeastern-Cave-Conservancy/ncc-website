@@ -9,6 +9,8 @@ mapPath: "/preserves/bentleys/map.pdf"
 caves:
   - bentleys_cavern
   - dry_valley_cave
+shortRequirements:
+  - "Park in the main parking area off Rt 22."
 topParagraphs:
   - "Bentleys Karst Preserve was donated by Mr and Mrs Bentley in fall of 2009. The preserve is situated on top of a hill in Berlin, NY and consists of about 5 acres."
 

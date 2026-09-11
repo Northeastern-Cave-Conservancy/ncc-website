@@ -6,7 +6,6 @@ party:
   minimum: 3
   maximum: null
 shortRequirements:
-  - "Park in NCC parking area"
   - "During the winter, please do not visit Sellecks Cave if ice is present on the walls of the sinkhole."
 vertical_gear_required: true
 winterClosure: false

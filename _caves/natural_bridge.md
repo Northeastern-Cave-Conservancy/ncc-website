@@ -5,8 +5,6 @@ preserve: sellecks
 party:
   minimum: 3
   maximum: null
-shortRequirements:
-  - "Park in NCC parking area"
 vertical_gear_required: false
 winterClosure: false
 special_use_groups_recommended: false

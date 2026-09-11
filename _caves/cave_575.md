@@ -5,8 +5,6 @@ preserve: sellecks
 party:
   minimum: 3
   maximum: null
-shortRequirements:
-  - "Park in NCC parking area"
 longRequirements:
   - "Cave 575 is a small pit cave with a 15 foot entrance drop requiring a rope."
 vertical_gear_required: true
