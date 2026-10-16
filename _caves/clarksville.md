@@ -5,7 +5,9 @@ preserve: clarksville
 party:
   minimum: 3
   maximum: 15
-winterClosure: true
+winterClosure:
+  - start: "10-01"
+  - end: "04-30"
 special_use_groups_recommended: true
 specialUse:
   party:

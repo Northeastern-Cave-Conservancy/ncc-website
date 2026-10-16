@@ -6,7 +6,9 @@ party:
   minimum: 3
   maximum: null
 vertical_gear_required: true
-winterClosure: true
+winterClosure:
+  - start: "10-01"
+  - end: "04-30"
 special_use_groups_recommended: false
 specialUseNote: "Ella Armstrong is a vertical cave and thus not recommended for most special use groups. Groups that are vertically competent may enter the cave."
 ---

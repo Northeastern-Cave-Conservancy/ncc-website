@@ -101,10 +101,13 @@
                           {% endif %}
                         </ul>
                         {% if cave.winterClosure %}
-                          {% if cave.winterClosureText %}
-                            <p><em>{{ cave.winterClosureText | markdownify | remove: '<p>' | remove: '</p>' }}</em></p>
+                          {% assign wc_start = cave.winterClosure | map: "start" | compact | first %}
+                          {% assign wc_end = cave.winterClosure | map: "end" | compact | first %}
+                          {% assign wc_text = cave.winterClosure | map: "customText" | compact | first %}
+                          {% if wc_text %}
+                            <p><em>{{ wc_text | markdownify | remove: '<p>' | remove: '</p>' }}</em></p>
                           {% else %}
-                          <p><em>{{ cave.title }} is closed October 1st through April 30th to protect hibernating bats. <a href="mailto:{{ page.email }}">Contact the preserve manager</a> for additional information.</em></p>
+                            <p><em>{{ cave.title }} is closed {{ "2000-" | append: wc_start | date: "%B %-d" }} through {{ "2000-" | append: wc_end | date: "%B %-d" }} to protect hibernating bats. <a href="mailto:{{ page.email }}">Contact the preserve manager</a> for additional information.</em></p>
                           {% endif %}
                         {% endif %}
                       {% else %}

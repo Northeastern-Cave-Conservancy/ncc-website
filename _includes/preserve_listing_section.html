@@ -1,6 +1,7 @@
 <div class="section mcb-section equal-height" style=
 "padding-top:40px; padding-bottom:10px; background-color:#D2C4B0">
 <div class="section_wrapper mcb-section-inner">
+<div id="cave-closure-banner" hidden style="background:#B00020;color:#fff;font-weight:bold;text-align:center;white-space:pre-line;padding:16px 20px;margin:20px 20px 10px;border-radius:4px;font-size:1.1em;"></div>
     {% comment %}
     Iterate over all preserves in groups of 3.
     Each group is 3 is rendered into its own row.
@@ -46,6 +47,7 @@
     {% assign cave = site.caves | where: "key", cave_key | first %}
     {% if cave %}
     <strong>{{ cave.title }}</strong>
+    <span class="cave-closed-status" data-cave-key="{{ cave.key }}" data-cave-title="{{ cave.title }}" hidden style="background:#B00020;color:#fff;font-weight:bold;padding:2px 10px;border-radius:4px;margin-left:8px;font-size:0.85em;letter-spacing:0.05em;">CLOSED</span>
     <ul>
         {% if cave.party %}
         <li>
@@ -95,3 +97,4 @@
     {% endfor %}
   </div>
 </div>
+<script src="/assets/js/cave-closures.js" defer></script>
