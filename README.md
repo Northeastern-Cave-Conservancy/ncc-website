@@ -39,8 +39,7 @@ First, determine a slug for the preseve (eg. `knox`). The `/_preserves` director
 | topParagraphs | list of strings | Introductory paragraphs shown at the top of the preserve page. |
 | longRequirements | list of strings | Long requirements shown on the specific preserve page (in addition to common requirements) |
 | imagePaths | list of strings | Paths to images used on the preserve page. |
-| winterClosure | boolean | true | Whether Winter closure rules apply. |
-| winterClosureText | string | The text explaining seasonal closure rules. |
+| winterClosure | list of maps | Seasonal closure rules. Each map has `start` and `end` (`MM-DD`, year omitted) and optionally `customText` (string) to replace the generated closure sentence. |
 | special\_use\_groups\_recommended | boolean | True if this preserve is recommended for special use groups, otherwise False. |
 | permit\_required | boolean | Whether a permit is required to visit this preserve. |
 | redirect\_from | list of strings | Alternative URL paths that should redirect to this permalink (used for legacy site migration).|

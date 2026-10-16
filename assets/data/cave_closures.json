@@ -1,0 +1,11 @@
+---
+---
+[
+{%- assign closed_caves = site.caves | where_exp: "cave", "cave.winterClosure" -%}
+{%- for cave in closed_caves -%}
+  {%- assign wc_start = cave.winterClosure | map: "start" | compact | first -%}
+  {%- assign wc_end = cave.winterClosure | map: "end" | compact | first -%}
+  {% unless forloop.first %},{% endunless %}
+  {"key": {{ cave.key | jsonify }}, "start": {{ wc_start | jsonify }}, "end": {{ wc_end | jsonify }}}
+{%- endfor %}
+]
