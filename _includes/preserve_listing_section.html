@@ -37,6 +37,9 @@
         {{ req | markdownify | remove: '<p>' | remove: '</p>' }}
     </li>
     {% endfor %}
+    <li>
+        <a href="mailto:{{ preserve.email }}">Contact Preserve Manager</a>
+    </li>
 </ul>
 
 {% for cave_key in preserve.caves %}
@@ -46,13 +49,13 @@
     <ul>
         {% if cave.party %}
         <li>
-        {% if cave.party.minimum %}
-          Minimum group size is {{ cave.party.minimum }}
-        {% endif %}
-        {% if cave.party.maximum %}
-         ; maximum group size is {{ cave.party.maximum }}
-        {% endif %}
-        .</li>
+            {%- if cave.party.minimum -%}
+                Minimum group size is {{ cave.party.minimum }}
+            {%- endif -%}
+            {%- if cave.party.maximum -%}
+                ; maximum group size is {{ cave.party.maximum }}
+            {%- endif %}
+        </li>
         {% endif %}
 
         {% for req in cave.shortRequirements %}
@@ -79,12 +82,6 @@
     </ul>
     {% endif %}
 {% endfor %}
-
-<ul>
-    <li>
-        <a href="mailto:{{ preserve.email }}">Contact Preserve Manager</a>
-    </li>
-</ul>
 
 <div class="button_align align_center"><a class="button  button_size_1 button_js" href="{{ preserve.permalink }}"><span class="button_label">Learn More</span></a></div>
 </div></div>

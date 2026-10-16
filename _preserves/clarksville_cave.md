@@ -8,9 +8,12 @@ managementPlanPath: "/preserves/clarksville/management_plan.pdf"
 mapPath: "/preserves/clarksville/map.pdf"
 caves:
   - clarksville
+shortRequirements:
+  - "Visits allowed from 7:00 AM to 11:00 PM"
+
 topParagraphs:
   - "Clarksville cave is a popular horizontal cave in Albany County, NY. With about 4800 feet of passage and three entrances, Clarksville is surely the best-known and most-visited wild cave in the Northeast."
-  - "The cave preserve is open from 7AM to 11PM (please be quiet around neighboring properties after 9:30PM) to the general public and includes a changing area and informational kiosk."
+  - "The cave preserve is open from 7:00 AM to 11:00 PM to the general public and includes a changing area and informational kiosk. Please be quiet around neighboring properties after 9:30 PM."
   - "Information about safe caving and guidlines for the preserve are available here as well as at the preserve."
 imagePaths:
   - "/preserves/clarksville/images/01.jpg"

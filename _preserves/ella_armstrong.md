@@ -6,6 +6,8 @@ manager: "Erik Nieman"
 email: "ella_armstrong@necaveconservancy.org"
 managementPlanPath: "/preserves/ella-armstrong/management_plan.pdf"
 mapPath: "/preserves/ella-armstrong/map.pdf"
+shortRequirements:
+  - "Park at Ella Armstrong parking area."
 caves:
   - ella_armstrong
 topParagraphs:
