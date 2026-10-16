@@ -89,8 +89,8 @@
                         <ul>
                           {% if cave.party %}
                             <li>
-                              {% if cave.party.minimum %}Minimum group size is {{ cave.party.minimum }}{% endif %}
-                              {% if cave.party.maximum %}; maximum group size is {{ cave.party.maximum }}{% endif %}
+                              {%- if cave.party.minimum -%}Minimum group size is {{ cave.party.minimum }}{%- endif -%}
+                              {%- if cave.party.maximum -%}; maximum group size is {{ cave.party.maximum }}{%- endif -%}
                               .</li>
                           {% endif %}
                           {% for req in cave.longRequirements %}
@@ -104,7 +104,7 @@
                           {% if cave.winterClosureText %}
                             <p><em>{{ cave.winterClosureText | markdownify | remove: '<p>' | remove: '</p>' }}</em></p>
                           {% else %}
-                            <p><em>{{ cave.title }} is closed October 1st through April 30th to protect hibernating bats. Contact the managers (below) for additional information.</em></p>
+                          <p><em>{{ cave.title }} is closed October 1st through April 30th to protect hibernating bats. <a href="mailto:{{ page.email }}">Contact the preserve manager</a> for additional information.</em></p>
                           {% endif %}
                         {% endif %}
                       {% else %}

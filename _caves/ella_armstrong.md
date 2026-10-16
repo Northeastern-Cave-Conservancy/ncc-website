@@ -5,8 +5,6 @@ preserve: ella-armstrong
 party:
   minimum: 3
   maximum: null
-shortRequirements:
-  - "Park at Ella Armstrong parking area."
 vertical_gear_required: true
 winterClosure: true
 special_use_groups_recommended: false
