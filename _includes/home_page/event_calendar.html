@@ -17,7 +17,7 @@
           </div>
           <div class="desc_wrapper">
             <div class="desc">
-                <h5 style="color:#00644B;">{{ event.date }}</h5>
+                <h5 class="ncc-primary-text">{{ event.date }}</h5>
               <p><b>{{ event.name}}</b><br>
               {{ event.location_and_time }}<br>
               {{ event.description | markdownify | remove: '<p>' | remove: '</p>' }} <br>
