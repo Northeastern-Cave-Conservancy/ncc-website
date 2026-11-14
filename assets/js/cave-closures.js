@@ -25,25 +25,27 @@
     .then(function (response) { return response.json(); })
     .then(function (closures) {
       var today = todayMMDD();
-      var closedNames = [];
+      var banner = document.getElementById('cave-closure-banner');
+      var caveKeys = banner && banner.dataset.caveKeys ? JSON.parse(banner.dataset.caveKeys) : null;
+      var hasClosedCaves = false;
       closures.forEach(function (closure) {
         if (!isClosed(closure.start, closure.end, today)) {
           return;
+        }
+        if (!caveKeys || caveKeys.indexOf(closure.key) !== -1) {
+          hasClosedCaves = true;
         }
         document
           .querySelectorAll('.cave-closed-status[data-cave-key="' + closure.key + '"]')
           .forEach(function (el) {
             el.hidden = false;
-            closedNames.push(el.dataset.caveTitle);
             var card = el.closest('.column_attr');
             if (card) {
-              card.style.borderColor = '#B00020';
+              card.style.borderColor = '#CB0000';
             }
           });
       });
-      if (closedNames.length) {
-        var banner = document.getElementById('cave-closure-banner');
-        banner.textContent = 'Winter closures are in effect. The following caves are currently closed:\n' + closedNames.join(', ') + '.';
+      if (banner && hasClosedCaves) {
         banner.hidden = false;
       }
     })

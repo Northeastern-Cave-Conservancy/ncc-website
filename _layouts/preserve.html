@@ -25,6 +25,7 @@
               <div class="mcb-wrap-inner">
                 <div class="column mcb-column one column_column column-margin-10px">
                   <div class="column_attr clearfix">
+                    {% include winter_closure/banner.html caves=page.caves %}
                     {% for paragraph in page.topParagraphs %}
                       {{ paragraph | liquid | markdownify }}
                     {% endfor %}
@@ -85,7 +86,7 @@
                     {% for cave_key in page.caves %}
                       {% assign cave = site.caves | where: "key", cave_key | first %}
                       {% if cave %}
-                        <h4>{{ cave.title }}</h4>
+                        <h4>{{ cave.title }} {% include winter_closure/badge.html cave=cave %}</h4>
                         <ul>
                           {% if cave.party %}
                             <li>
