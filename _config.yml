@@ -4,6 +4,18 @@ title: necaveconservancy.org
 lang: en-US
 timezone:  America/New_York
 
+colors:
+  background: "#F0EBE3"
+  background_alternate: "#D2C4B0"
+  heading_accent: "#47360D"
+  border: "#9F835B"
+  primary: "#00644B"
+  winter_closure: "#CB0000"
+  text_on_primary: "#FFFFFF"
+  subheader_text: "#E7DFD4"
+  subheader_shadow: "#000000"
+  subheader_shadow_glow: "#1F0601"
+
 # Organization settings
 organization:
   facebookUrl: "https://www.facebook.com/groups/necaveconservancy"

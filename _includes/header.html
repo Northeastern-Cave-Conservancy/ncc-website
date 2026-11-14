@@ -77,18 +77,18 @@
   body:not(.template-slider) #Header_wrapper { background-position: center bottom; }
 
   a.button_theme, a.tp-button.button_theme, button, input[type="submit"], input[type="reset"], input[type="button"] {
-    background-color: #00644B;
-    color: #fff;
+    background-color: {{ site.colors.primary }};
+    color: {{ site.colors.text_on_primary }};
   }
 
   #Subheader .title {
-    color: #E7DFD4;
+    color: {{ site.colors.subheader_text }};
     font-size: 46px;
     line-height: 50px;
     letter-spacing: 0px;
   }
 
-  #Subheader .title { font-weight: 900; text-shadow: 1px 1px 1px #000, 3px 3px 10px #1F0601;}
+  #Subheader .title { font-weight: 900; text-shadow: 1px 1px 1px {{ site.colors.subheader_shadow }}, 3px 3px 10px {{ site.colors.subheader_shadow_glow }};}
 
   #Subheader:after { display: none; }
 
@@ -104,7 +104,7 @@
   }
 
   .pager .pages {
-    background-color: #F0EBE3; }
+    background-color: {{ site.colors.background }}; }
 
   .zoom_box .desc .desc_img img {
     max-width: 50% !important;
