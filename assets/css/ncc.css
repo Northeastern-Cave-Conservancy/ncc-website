@@ -21,6 +21,7 @@ layout: null
 }
 .image_frame.ncc-preserve-image { display: inline-block; }
 .ncc-primary-text { color: var(--ncc-primary); }
+.ncc-permit-card { padding: 20px; }
 
 h1 { font-weight: 700; }
 h2 { font-weight: 700; letter-spacing: 2px; }
