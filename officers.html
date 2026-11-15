@@ -4,6 +4,32 @@ title: The Board of NCC
 subtitle: THE BOARD OF NCC
 ---
 
+<style>
+    .officer-photo {
+        position: relative;
+        aspect-ratio: 3 / 4;
+        margin-bottom: 15px;
+    }
+    .officer-photo .image_frame {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        border-width: 1px;
+    }
+    .officer-photo .image_wrapper {
+        height: 100%;
+    }
+    #Content .officer-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .officer-biography-placeholder {
+        visibility: hidden;
+    }
+</style>
+
 {% comment %}
 {% endcomment %}
 
@@ -16,13 +42,15 @@ subtitle: THE BOARD OF NCC
 
     <div class="column mcb-column one-fourth column_our_team ">
         <div class="team team_vertical">
-            {% if officer.image_path %}
-                <div class="image_frame photo no_link scale-with-grid">
-                    <div class="image_wrapper">
-                        <img class="scale-with-grid" src="{{ officer.image_path }}" alt="{{ officer.name }}">
+            <div class="officer-photo">
+                {% if officer.image_path %}
+                    <div class="image_frame photo no_link scale-with-grid">
+                        <div class="image_wrapper">
+                            <img class="scale-with-grid" src="{{ officer.image_path }}" alt="{{ officer.name }}">
+                        </div>
                     </div>
-                </div>
-            {% endif %}
+                {% endif %}
+            </div>
             <div class="desc_wrapper">
                 <h4>{{ officer.name }}</h4>
                 <p class="subtitle">{{ officer.title }}</p>
@@ -36,6 +64,8 @@ subtitle: THE BOARD OF NCC
                                     <p>{{ officer.biography }}</p>
                             </div>
                         </div>
+                    {% else %}
+                        <span class="officer-biography-placeholder" aria-hidden="true">Read full biography</span>
                     {% endif %}
                 </div>
                 <div class="links">
@@ -48,10 +78,8 @@ subtitle: THE BOARD OF NCC
         </div>
     </div>
 
-    {% if remainder == 3 %}
+    {% if remainder == 3 or forloop.last %}
         </div></div>
     {% endif %}
 
 {% endfor %}
-</div>
-</div>
