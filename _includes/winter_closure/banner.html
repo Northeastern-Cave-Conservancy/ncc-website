@@ -1,0 +1,2 @@
+<div id="cave-closure-banner"{% if include.caves %} data-cave-keys="{{ include.caves | jsonify | escape }}"{% endif %} hidden style="background:#CB0000;color:#FFFF;font-weight:bold;text-align:center;white-space:pre-line;padding:16px 20px;margin:20px 20px 10px;border-radius:4px;font-size:1.1em;">{{ include.text | default: "Winter closures are in effect. Check cave-specific requirements below before visiting." | escape }}</div>
+<script src="/assets/js/cave-closures.js" defer></script>

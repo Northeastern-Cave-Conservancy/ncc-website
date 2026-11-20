@@ -6,10 +6,9 @@ manager: "Devon Hedges"
 email: "bentleys@necaveconservancy.org"
 managementPlanPath: "/preserves/bentleys/management_plan.pdf"
 mapPath: "/preserves/bentleys/map.pdf"
-party:
-  minimum: 3
-  maximum: 15
-
+caves:
+  - bentleys_cavern
+  - dry_valley_cave
 shortRequirements:
   - "Park in the main parking area off Rt 22."
 topParagraphs:
@@ -20,8 +19,6 @@ topParagraphs:
 
 imagePaths:
   - "/preserves/bentleys/images/dry_valley_cavern.jpg"
-winterClosure: true
-special_use_groups_recommended: true
 permit_required: false
 redirect_from:
   - /bentleys-preserve

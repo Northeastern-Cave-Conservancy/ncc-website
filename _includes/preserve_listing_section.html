@@ -1,6 +1,7 @@
 <div class="section mcb-section equal-height" style=
 "padding-top:40px; padding-bottom:10px; background-color:#D2C4B0">
 <div class="section_wrapper mcb-section-inner">
+{% include winter_closure/banner.html %}
     {% comment %}
     Iterate over all preserves in groups of 3.
     Each group is 3 is rendered into its own row.
@@ -12,59 +13,77 @@
                 <div class="mcb-wrap-inner">
         {% endif %}
 
-<div class="column mcb-column one-third column_column  column-margin-0px" style="height: 368.531px;"><div class="column_attr clearfix" style="padding:20px 10% 12px; border: 4px solid #9F835B;">
+<div class="column mcb-column one-third column_column  column-margin-0px"><div class="column_attr clearfix" style="padding:20px 10% 12px; border: 4px solid #9F835B;">
         <h5>{{ preserve.title }}</h5>
 <hr class=" hr_color" style="margin: 0 auto 20px;">
 
 <ul>
-    {% if preserve.party %}
+    {% if preserve.permit_required %}
     <li>
-    {% if preserve.party.minimum %}
-      Minimum group size is {{ preserve.party.minimum }}
-    {% endif %}
-    {% if preserve.party.maximum %}
-     ; maximum group size is {{ preserve.party.maximum }}
-    {% endif %}
-    .</li>
+        Visitors must <a href="mailto:{{ preserve.email }}">contact the Preserve Manager</a> for a permit
+    </li>
+    {% else %}
+    <li>
+        No permit is required for regular users
+    </li>
     {% endif %}
 
+    {% comment %}
+    Requirements that apply to the whole preserve (parking, stewardship, ...)
+    are held on the preserve so they are stated once per card rather than
+    repeated under every cave.
+    {% endcomment %}
     {% for req in preserve.shortRequirements %}
     <li>
         {{ req | markdownify | remove: '<p>' | remove: '</p>' }}
     </li>
     {% endfor %}
-
-    {% if preserve.vertical_gear_required %}
-    <li>
-        {{ site.data.common_preserve_requirements.vertical.short_requirement }}
-    </li>
-    {% endif %}
-
-    {% if preserve.special_use_groups_recommended %}
-    <li>
-        <a href="/cave-permit-special-use" >Special Use groups</a> require a permit
-    </li>
-    {% else %}
-    <li>
-        Not recommended for <a href="/cave-permit-special-use" >Special Use groups</a>
-    </li>
-    {% endif %}
-
-    {% if preserve.permit_required %}
-    <li>
-        All others must <a href="mailto:{{ preserve.email }}">contact Preserve Manager</a> for permit
-    </li>
-    {% else %}
-    <li>
-        For others no permit is required
-    </li>
-    {% endif %}
-
-
     <li>
         <a href="mailto:{{ preserve.email }}">Contact Preserve Manager</a>
     </li>
 </ul>
+
+{% for cave_key in preserve.caves %}
+    {% assign cave = site.caves | where: "key", cave_key | first %}
+    {% if cave %}
+    <strong>{{ cave.title }}</strong>
+    {% include winter_closure/badge.html cave=cave %}
+    <ul>
+        {% if cave.party %}
+        <li>
+            {%- if cave.party.minimum -%}
+                Minimum group size is {{ cave.party.minimum }}
+            {%- endif -%}
+            {%- if cave.party.maximum -%}
+                ; maximum group size is {{ cave.party.maximum }}
+            {%- endif %}
+        </li>
+        {% endif %}
+
+        {% for req in cave.shortRequirements %}
+        <li>
+            {{ req | markdownify | remove: '<p>' | remove: '</p>' }}
+        </li>
+        {% endfor %}
+
+        {% if cave.vertical_gear_required %}
+        <li>
+            {{ site.data.common_preserve_requirements.vertical.short_requirement }}
+        </li>
+        {% endif %}
+
+        {% if cave.special_use_groups_recommended %}
+        <li>
+            <a href="/cave-permit-special-use" >Special Use groups</a> require a permit
+        </li>
+        {% else %}
+        <li>
+            Not recommended for <a href="/cave-permit-special-use" >Special Use groups</a>
+        </li>
+        {% endif %}
+    </ul>
+    {% endif %}
+{% endfor %}
 
 <div class="button_align align_center"><a class="button  button_size_1 button_js" href="{{ preserve.permalink }}"><span class="button_label">Learn More</span></a></div>
 </div></div>

@@ -7,9 +7,11 @@ email: sellecks@necaveconservancy.org
 images:
 managementPlanPath: "/preserves/sellecks/management_plan.pdf"
 mapPath: "/preserves/sellecks/map.pdf"
-party:
-  minimum: 3
-  maximum: null
+caves:
+  - sellecks
+  - levys
+  - cave_575
+  - natural_bridge
 shortRequirements:
   - "Park in NCC parking area"
 topParagraphs:
@@ -26,9 +28,6 @@ imagePaths:
   - "/preserves/sellecks/images/03.jpg"
   - "/preserves/sellecks/images/04.jpg"
   - "/preserves/sellecks/images/05.jpg"
-winterClosure: false
-special_use_groups_recommended: false
-vertical_gear_required: true
 permit_required: false
 redirect_from:
   - /sellecks-preserve
