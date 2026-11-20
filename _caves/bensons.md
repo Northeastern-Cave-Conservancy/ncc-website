@@ -3,7 +3,7 @@ title: "Bensons Cave"
 key: bensons
 preserve: bensons
 party:
-  minimum: 4
+  minimum: 3
   maximum: null
 vertical_gear_required: true
 shortRequirements:
