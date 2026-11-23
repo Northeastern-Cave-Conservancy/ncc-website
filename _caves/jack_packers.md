@@ -6,4 +6,7 @@ party:
   minimum: 3
   maximum: 6
 special_use_groups_recommended: true
+winterClosure:
+  - start: "10-01"
+  - end: "04-30"
 ---
