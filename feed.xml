@@ -1,0 +1,78 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NE Cave Conservancy - Documents</title>
+    <link>{{ site.url }}</link>
+    <description>Board meeting minutes and newsletters from the Northeastern Cave Conservancy.</description>
+    <language>{{ site.lang | default: "en-US" }}</language>
+    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
+
+    {% comment %}
+      Collect minutes and newsletter PDFs, tag each with its type,
+      then merge and sort newest-first.
+    {% endcomment %}
+
+    {% assign minutes_files = site.static_files | where_exp:"f", "f.extname == '.pdf' and f.path contains '/assets/documents/minutes/'" %}
+    {% assign newsletter_files = site.static_files | where_exp:"f", "f.extname == '.pdf' and f.path contains '/assets/documents/newsletters/'" %}
+
+    {% comment %} Build a combined list with sortable date keys {% endcomment %}
+    {% assign all_items = "" %}
+    {% for f in minutes_files %}
+      {% assign date_str = f.name | slice: 0, 10 %}
+      {% assign location = f.name | split: "_" | last | split: "." | first %}
+      {% assign nice_date = date_str | date: "%B %-d, %Y" %}
+      {% assign entry = date_str | append: "||minutes||" | append: nice_date | append: "||" | append: location | append: "||" | append: f.path %}
+      {% if all_items == "" %}
+        {% assign all_items = entry %}
+      {% else %}
+        {% assign all_items = all_items | append: ";;;" | append: entry %}
+      {% endif %}
+    {% endfor %}
+
+    {% for f in newsletter_files %}
+      {% assign date_str = f.name | slice: 0, 10 %}
+      {% assign vol_issue = f.name | split: "_" | last | split: "." | first %}
+      {% assign vol_num = vol_issue | remove: "v" | split: "n" | first %}
+      {% assign issue_num = vol_issue | remove: "v" | split: "n" | last %}
+      {% assign nice_date = date_str | date: "%B %Y" %}
+      {% assign entry = date_str | append: "||newsletter||" | append: nice_date | append: "||Vol. " | append: vol_num | append: ", No. " | append: issue_num | append: "||" | append: f.path %}
+      {% if all_items == "" %}
+        {% assign all_items = entry %}
+      {% else %}
+        {% assign all_items = all_items | append: ";;;" | append: entry %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign items_array = all_items | split: ";;;" | sort | reverse %}
+
+    {% for item in items_array %}
+      {% assign parts = item | split: "||" %}
+      {% assign date_str   = parts[0] %}
+      {% assign doc_type   = parts[1] %}
+      {% assign nice_date  = parts[2] %}
+      {% assign detail     = parts[3] %}
+      {% assign file_path  = parts[4] %}
+      {% assign encoded_path = file_path | url_encode_filename %}
+      {% assign rfc_date = date_str | date: "%a, %d %b %Y 00:00:00 %z" %}
+
+      {% if doc_type == "minutes" %}
+        {% assign title = "Board Minutes - " | append: nice_date | append: " (" | append: detail | append: ")" %}
+        {% assign desc  = "NCC board meeting minutes from " | append: nice_date | append: ", held at " | append: detail | append: "." %}
+      {% else %}
+        {% assign title = "Newsletter - " | append: nice_date | append: " (" | append: detail | append: ")" %}
+        {% assign desc  = "NCC newsletter for " | append: nice_date | append: " (" | append: detail | append: ")." %}
+      {% endif %}
+
+    <item>
+      <title>{{ title | xml_escape }}</title>
+      <link>{{ site.url }}{{ encoded_path }}</link>
+      <guid isPermaLink="true">{{ site.url }}{{ encoded_path }}</guid>
+      <pubDate>{{ rfc_date }}</pubDate>
+      <description>{{ desc | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
